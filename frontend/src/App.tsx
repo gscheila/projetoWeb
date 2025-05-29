@@ -1,24 +1,33 @@
 import React from 'react';
-import { CssBaseline, Container, ThemeProvider, createTheme } from '@mui/material';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, Container } from '@mui/material';
 import ClienteList from './components/ClienteList';
-
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#1976d2',
-    },
-  },
-});
+import GerarBoleto from './components/GerarBoleto';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Router>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            Sistema de Gerenciamento
+          </Typography>
+          <Button color="inherit" component={Link} to="/">
+            Clientes
+          </Button>
+          <Button color="inherit" component={Link} to="/gerar-boleto">
+            Gerar Boleto
+          </Button>
+        </Toolbar>
+      </AppBar>
+
       <Container>
-        <ClienteList />
+        <Routes>
+          <Route path="/" element={<ClienteList />} />
+          <Route path="/gerar-boleto" element={<GerarBoleto />} />
+        </Routes>
       </Container>
-    </ThemeProvider>
+    </Router>
   );
 }
 
