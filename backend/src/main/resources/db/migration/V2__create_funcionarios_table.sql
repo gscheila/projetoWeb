@@ -1,0 +1,11 @@
+CREATE TABLE funcionarios (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    time VARCHAR(255) NOT NULL,
+    mes_entrada VARCHAR(255) NOT NULL,
+    fabrica VARCHAR(255) NOT NULL,
+    senioridade VARCHAR(255) NOT NULL,
+    cargo VARCHAR(255) NOT NULL,
+    modelo VARCHAR(255) NOT NULL
+); 
